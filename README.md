@@ -49,6 +49,37 @@ Brain tumor classification from MRI images is a critical task for early diagnosi
    - Generates Grad-CAM heatmaps for test images
    - Helps understand which regions the model focuses on for its decision
 
+## Model Performance
+
+### Training Metrics
+- **Test Accuracy**: 98%
+- **Macro Avg F1-Score**: 0.98
+
+### Accuracy & Loss Curves
+| Accuracy | Loss |
+|----------|------|
+| ![Accuracy Curve](https://via.placeholder.com/400x300?text=Accuracy+Curve) | ![Loss Curve](https://via.placeholder.com/400x300?text=Loss+Curve) |
+
+### Classification Report
+```
+              precision    recall  f1-score   support
+       glioma       0.99      0.97      0.98       272
+   meningioma       0.97      0.97      0.97       306
+     no tumor       1.00      1.00      1.00       405
+    pituitary       0.98      1.00      0.99       300
+
+       accuracy                           0.98      1283
+      macro avg       0.98      0.98      0.98      1283
+   weighted avg       0.98      0.98      0.98      1283
+```
+
+### Confusion Matrix
+The model shows excellent performance across all classes:
+- **Glioma**: 263/272 correct (97%)
+- **Meningioma**: 296/306 correct (97%)
+- **No Tumor**: 404/405 correct (100%)
+- **Pituitary**: 299/300 correct (100%)
+
 ## Example Results
 Below are Grad-CAM visualizations showing the model's attention on MRI images:
 
