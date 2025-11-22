@@ -58,7 +58,7 @@ Brain tumor classification from MRI images is a critical task for early diagnosi
 ### Accuracy & Loss Curves
 | Accuracy | Loss |
 |----------|------|
-| ![Accuracy Curve](https://via.placeholder.com/400x300?text=Accuracy+Curve) | ![Loss Curve](https://via.placeholder.com/400x300?text=Loss+Curve) |
+| ![Accuracy Curve](./resim1.png) | ![Loss Curve](./resim2.png) |
 
 ### Classification Report
 ```
@@ -79,6 +79,7 @@ The model shows excellent performance across all classes:
 - **Meningioma**: 296/306 correct (97%)
 - **No Tumor**: 404/405 correct (100%)
 - **Pituitary**: 299/300 correct (100%)
+![Confusion Matrix](./resim4.png)
 
 ## Example Results
 Below are Grad-CAM visualizations showing the model's attention on MRI images:
