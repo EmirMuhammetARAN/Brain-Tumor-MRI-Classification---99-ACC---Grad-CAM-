@@ -3,6 +3,9 @@
 ![Grad-CAM Example 1](./gradcam1.png)
 ![Grad-CAM Example 2](./gradcam2.png)
 
+## 🚀 Live Demo
+Try it now: [Hugging Face Spaces](https://huggingface.co/spaces/emiraran/brain-tumor-classification)
+
 ## Overview
 This project implements a deep learning pipeline for classifying brain tumor MRI images into four categories: **glioma**, **meningioma**, **notumor**, and **pituitary**. The model leverages transfer learning with EfficientNetB3 and includes interpretability with Grad-CAM visualizations.
 
