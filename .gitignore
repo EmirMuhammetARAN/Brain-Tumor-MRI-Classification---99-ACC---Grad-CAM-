@@ -1,0 +1,98 @@
+# .gitignore for Brain Tumor Classification Project
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Dataset (too large for git)
+Training/
+Testing/
+dataset/
+data/
+
+# Model files (use Git LFS or external storage)
+*.h5
+*.hdf5
+*.pb
+*.ckpt
+*.pth
+*.pt
+
+# Logs
+logs/
+*.log
+inference.log
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Weights & Biases
+wandb/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+coverage.xml
+*.cover
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+# Output files
+validation_results/
+error_analysis/
+benchmark_report.json
+experiment_summary.md
+*.png
+*.jpg
+*.jpeg
+!gradcam*.png  # Keep example Grad-CAM images
+!resim*.png     # Keep result images
+
+# Docker
+docker-compose.override.yml

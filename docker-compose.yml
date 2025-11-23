@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  brain-tumor-api:
+    build: .
+    container_name: brain-tumor-classifier
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=/app/best_weights_balanced.h5
+      - CONFIG_PATH=/app/config.json
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/app/logs
+      - ./best_weights_balanced.h5:/app/best_weights_balanced.h5:ro
+      - ./config.json:/app/config.json:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+
+  # Optional: MLflow tracking server
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.9.2
+    container_name: mlflow-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlflow/mlruns
+      - ./mlartifacts:/mlflow/mlartifacts
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///mlflow/mlruns/mlflow.db
+      --default-artifact-root /mlflow/mlartifacts
+      --host 0.0.0.0
+      --port 5000
+    restart: unless-stopped
+
+networks:
+  default:
+    name: brain-tumor-network

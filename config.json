@@ -1,0 +1,72 @@
+{
+    "model": {
+        "name": "brain-tumor-classifier",
+        "version": "1.0.0",
+        "architecture": "EfficientNetB3",
+        "input_shape": [
+            224,
+            224,
+            3
+        ],
+        "num_classes": 4,
+        "class_names": [
+            "glioma",
+            "meningioma",
+            "notumor",
+            "pituitary"
+        ]
+    },
+    "training": {
+        "batch_size": 32,
+        "epochs": 50,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "early_stopping_patience": 5,
+        "reduce_lr_patience": 3,
+        "validation_split": 0.2
+    },
+    "data": {
+        "image_size": [
+            224,
+            224
+        ],
+        "normalization": "efficientnet_preprocess",
+        "augmentation": {
+            "enabled": true,
+            "rotation_range": 20,
+            "zoom_range": 0.15,
+            "horizontal_flip": true,
+            "vertical_flip": false
+        }
+    },
+    "inference": {
+        "confidence_threshold": 0.80,
+        "high_risk_threshold": 0.90,
+        "batch_size": 16
+    },
+    "deployment": {
+        "api_version": "v1",
+        "max_request_size_mb": 10,
+        "timeout_seconds": 30,
+        "enable_gradcam": true
+    },
+    "logging": {
+        "level": "INFO",
+        "format": "json",
+        "log_predictions": true,
+        "log_errors": true
+    },
+    "clinical": {
+        "intended_use": "Computer-aided detection for brain tumor classification",
+        "contraindications": [
+            "Not for pediatric patients under 18",
+            "Not for emergency triage",
+            "Requires radiologist confirmation"
+        ],
+        "supported_modalities": [
+            "MRI T1",
+            "MRI T2"
+        ],
+        "regulatory_status": "Research Use Only - Not for Clinical Diagnosis"
+    }
+}
